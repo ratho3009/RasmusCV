@@ -13,7 +13,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@iconify-json/fa6-brands": "^1.2.6",
     "astro": "^6.3.7",
+    "astro-icon": "^1.1.5",
     "tailwind-animations": "^1.0.1",
     "tailwindcss": "^4.3.0"
   },

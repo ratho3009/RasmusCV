@@ -1,0 +1,53 @@
+---
+// src/components/Header.astro
+// You can write JavaScript/TypeScript here if you need dynamic data later!
+const navItems = ["Home", "About", "Contact"];
+import { Icon } from "astro-icon/components";
+---
+
+<header class="">
+    <div class="bg-teal-400">
+        <div class="items-center flex min-h-20 justify-between px-10">
+            <ul class="flex gap-10">
+                <li class="hover:text-white"><a href="/">Home</a></li>
+                <li class="hover:text-white"><a href="/">Contact</a></li>
+                <li class="hover:text-white"><a href="music">Music</a></li>
+                <li class="hover:text-white"><a href="tech">Tech</a></li>
+            </ul>
+            <ul class="items-center flex min-h-20 gap-10">
+                <li class="">
+                    <a
+                        href="https://tiktok.com"
+                        class="text-black hover:text-white transition-colors"
+                    >
+                        <Icon name="fa6-brands:tiktok" class="size-6" />
+                    </a>
+                </li>
+                <li class="">
+                    <a
+                        href="https://tiktok.com"
+                        class="text-black hover:text-white transition-colors"
+                    >
+                        <Icon name="fa6-brands:instagram" class="size-6" />
+                    </a>
+                </li>
+                <li class="">
+                    <a
+                        href="https://tiktok.com"
+                        class="text-black hover:text-white transition-colors"
+                    >
+                        <Icon name="fa6-brands:youtube" class="size-6" />
+                    </a>
+                </li>
+                <li class="">
+                    <a
+                        href="https://tiktok.com"
+                        class="text-black hover:text-white transition-colors"
+                    >
+                        <Icon name="fa6-brands:spotify" class="size-6" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>

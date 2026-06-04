@@ -1,6 +1,23 @@
 ---
 // En Astro-side
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
 ---
 
-<Layout />
+<Layout>
+    <Header />
+    <div class="grid items-center justify-center">
+        <h1
+            class="-translate-x-40 mt-10 text-4xl font-bold text-teal-400 text-left animate-fade-in-up"
+        >
+            About my music
+        </h1>
+        <p class="-translate-x-40 pt-7 max-w-100 text-white">
+            Ive been doing music my whole life. Writing songs. jaskdj jaskfjasfj
+            kajskajs kfjsakfjksa jkfsajkfj kjaksfjskaj kjfsakfjks. aisjfunsafk
+            fkjsafksaf kjasfkjs Ive been doing music my whole life. Writing
+            songs. jaskdj jaskfjasfj kajskajs kfjsakfjksa jkfsajkfj kjaksfjskaj
+            kjfsakfjks. aisjfunsafk fkjsafksaf kjasfkjs
+        </p>
+    </div>
+</Layout>
