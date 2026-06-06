@@ -1,0 +1,88 @@
+---
+// src/components/Header.astro
+// You can write JavaScript/TypeScript here if you need dynamic data later!
+//  <Icon name="fa6-solid:angle-right" class="size-10 text-teal-400" />
+import { Icon } from "astro-icon/components";
+
+let selected = true;
+---
+
+<div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 justify-items-center items-center px-70 py-8"
+>
+    <iframe
+        id="previousvideo"
+        src="https://www.tiktok.com/player/v1/7647510065221602582?autoplay=0"
+        class="w-[180px] h-[340px] rounded-xl shadow-lg border-none brightness-60"
+        allow="fullscreen"
+        loading="lazy"
+    >
+    </iframe>
+
+    <button id="previous-btn" class="hover:animate-pulse cursor-pointer"
+        ><Icon
+            name="fa6-solid:angle-left"
+            class="size-10 text-teal-400"
+        /></button
+    >
+
+    <iframe
+        id="mainvideo"
+        src="https://www.tiktok.com/player/v1/7640552327224511766?autoplay=0"
+        class="w-[220px] h-[380px] rounded-xl shadow-lg border-none"
+        allow="fullscreen"
+        loading="lazy"
+    >
+    </iframe>
+
+    <button id="next-btn" class="hover:animate-pulse cursor-pointer"
+        ><Icon
+            name="fa6-solid:angle-right"
+            class="size-10 text-teal-400"
+        /></button
+    >
+    <iframe
+        id="nextvideo"
+        src="https://www.tiktok.com/player/v1/7638966279818202390?autoplay=0"
+        class="w-[180px] h-[340px] rounded-xl shadow-lg border-none brightness-60 animate-slide-in-left"
+        allow="fullscreen"
+        loading="lazy"
+    >
+    </iframe>
+</div>
+
+<script>
+    let mainVideo = document.getElementById("mainvideo") as HTMLIFrameElement;
+    let nextVideo = document.getElementById("nextvideo") as HTMLIFrameElement;
+    let previousVideo = document.getElementById(
+        "previousvideo",
+    ) as HTMLIFrameElement;
+    const nextButton = document.getElementById("next-btn") as HTMLButtonElement;
+    nextButton.addEventListener("click", () => {
+        console.log("Arrow button clicked!");
+        let saveVideo = mainVideo.src;
+        let saveVideo2 = nextVideo.src;
+        document
+            .getElementById("mainvideo")
+            ?.setAttribute("src", previousVideo.src);
+        document
+            .getElementById("previousvideo")
+            ?.setAttribute("src", saveVideo2);
+        document.getElementById("nextvideo")?.setAttribute("src", saveVideo);
+    });
+    const previousButton = document.getElementById(
+        "previous-btn",
+    ) as HTMLButtonElement;
+    previousButton.addEventListener("click", () => {
+        console.log("Arrow button clicked!");
+        let saveVideo = mainVideo.src;
+        let saveVideo2 = previousVideo.src;
+        document
+            .getElementById("mainvideo")
+            ?.setAttribute("src", nextVideo.src);
+        document
+            .getElementById("previousvideo")
+            ?.setAttribute("src", saveVideo);
+        document.getElementById("nextvideo")?.setAttribute("src", saveVideo2);
+    });
+</script>
