@@ -7,30 +7,147 @@ import VideoScroll from "../components/VideoScroll.astro";
 
 <Layout>
     <Header />
-    <div class="grid items-center justify-center">
-        <h1
-            class="-translate-x-10 mt-10 text-4xl font-bold text-teal-400 text-left animate-fade-in-up"
-        >
-            About my music
-        </h1>
-        <div class="flex items-center">
-            <p class="-translate-x-10 pt-7 max-w-100 text-white">
-                Ive been doing music my whole life. Writing songs. jaskdj
-                jaskfjasfj kajskajs kfjsakfjksa jkfsajkfj kjaksfjskaj
-                kjfsakfjks. aisjfunsafk fkjsafksaf kjasfkjs Ive been doing music
-                my whole life. Writing songs. jaskdj jaskfjasfj kajskajs
-                kfjsakfjksa jkfsajkfj kjaksfjskaj kjfsakfjks. aisjfunsafk
-                fkjsafksaf kjasfkjs
-            </p>
-            <span class="max-w-50"
-                ><img src="/pianoplaceholder.png" class="w-50" alt="" /></span
+
+    <div class="max-w-6xl mx-auto w-full px-6 flex flex-col">
+        <div class="w-full mt-12">
+            <h1
+                class="text-4xl font-extrabold text-teal-400 text-left tracking-tight animate-fade-in-up"
             >
+                About my music
+            </h1>
+
+            <div
+                class="mt-8 bg-gray-800/20 border border-gray-700/30 rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-8 md:gap-12 shadow-xl backdrop-blur-sm animate-fade-in-up"
+            >
+                <div class="flex-1 space-y-4">
+                    <p class="text-xl font-semibold text-teal-300/90 italic">
+                        "Every song tells a story, and the keys are where they
+                        begin."
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        I've been immersed in music my whole life. From writing
+                        my first raw songs to meticulously crafting intricate
+                        piano melodies, creating music is how I capture emotions
+                        and share them with the world. Whether it's stripping a
+                        famous pop track down to its bare acoustic roots or
+                        assembling massive layers in the studio, my goal is
+                        always the same: authentic connection.
+                    </p>
+                </div>
+
+                <div
+                    class="w-full max-w-[240px] sm:max-w-[280px] md:w-72 shrink-0 relative group"
+                >
+                    <div
+                        class="absolute inset-0 bg-teal-500/10 rounded-xl blur-xl group-hover:bg-teal-500/20 transition-all duration-500"
+                    >
+                    </div>
+
+                    <img
+                        src="/pianoplaceholder.png"
+                        class="w-full relative z-10 rounded-xl shadow-2xl border border-gray-700/50 group-hover:scale-[1.03] group-hover:border-teal-500/40 transition-all duration-500 object-cover aspect-square"
+                        alt="Piano performance portrait"
+                    />
+                </div>
+            </div>
         </div>
-        <h2
-            class="-translate-x-10 mt-10 text-3xl font-bold text-teal-400 text-left animate-fade-in-up"
-        >
-            Some of the Piano covers i have made
-        </h2>
     </div>
-    <VideoScroll />
+    <div class="flex justify-center items-center my-20 w-full">
+        <div
+            class="bg-gray-800/50 p-1 rounded-full inline-flex relative shadow-inner"
+        >
+            <button
+                id="btn-live"
+                class="px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 cursor-pointer bg-teal-400 text-gray-900 shadow-md"
+            >
+                Live Performance
+            </button>
+            <button
+                id="btn-prod"
+                class="px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 cursor-pointer text-white hover:text-teal-300"
+            >
+                Music Production
+            </button>
+        </div>
+    </div>
+
+    <div class="w-full max-w-4xl mx-auto pb-20">
+        <div id="content-live" class="block animate-fade-in-up">
+            <h2 class="text-3xl font-bold text-teal-400 mb-4">
+                Live Performance
+            </h2>
+            <p class="pt-4 max-w-2xl text-white leading-relaxed">
+                I've been immersed in music my entire life. Whether I'm writing
+                original songs or putting my own spin on popular tracks, sitting
+                at the piano is where I feel most at home. For me, live
+                performance is all about connection—taking a piece of music,
+                stripping it down to the keys, and sharing that raw energy and
+                emotion with an audience.
+            </p>
+            <h2
+                class="mt-16 mb-8 text-3xl font-bold text-teal-400 text-left animate-fade-in-up"
+            >
+                Some of the Piano covers I have made
+            </h2>
+            <VideoScroll />
+        </div>
+
+        <div id="content-prod" class="hidden animate-fade-in-up">
+            <h2 class="text-3xl font-bold text-teal-400 mb-4">
+                Music Production
+            </h2>
+            <p class="text-white leading-relaxed pt-4 max-w-2xl">
+                While live performance is about the raw energy of the moment,
+                the studio is where I get to build an entire sonic world from
+                the ground up. Music production allows me to take a single piano
+                chord or a fleeting idea and sculpt it into a fully realized
+                track. Whether I'm layering instruments, dialing in the perfect
+                mix, or experimenting with sound design, the studio is where my
+                broader creative vision comes to life.
+            </p>
+
+            <h2
+                class="mt-16 mb-8 text-3xl font-bold text-teal-400 text-left animate-fade-in-up"
+            >
+                Listen to my latest tracks
+            </h2>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-5xl mt-8"
+            >
+                <iframe
+                    style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/2yliUWZhYKmMKfGBvBYG3P?utm_source=generator"
+                    width="100%"
+                    height="352"
+                    frameborder="0"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    class="shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+                >
+                </iframe>
+
+                <iframe
+                    data-testid="embed-iframe"
+                    style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/3xG3HQPV6sYkSrZ6YDCN7v?utm_source=generator&theme=0"
+                    width="100%"
+                    height="352"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+
+                <iframe
+                    data-testid="embed-iframe"
+                    style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/77KV71TOuQKxJh0xAqiENG?utm_source=generator"
+                    width="100%"
+                    height="352"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
 </Layout>

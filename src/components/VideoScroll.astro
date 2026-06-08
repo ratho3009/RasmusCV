@@ -107,3 +107,58 @@ import { Icon } from "astro-icon/components";
     // Run this once when the page loads to snap everything into place
     applyPositions();
 </script>
+<script>
+    // 1. Grab our buttons and content blocks
+    const btnLive = document.getElementById("btn-live") as HTMLButtonElement;
+    const btnProd = document.getElementById("btn-prod") as HTMLButtonElement;
+    const contentLive = document.getElementById(
+        "content-live",
+    ) as HTMLDivElement;
+    const contentProd = document.getElementById(
+        "content-prod",
+    ) as HTMLDivElement;
+
+    // 2. Define our active and inactive styling classes
+    const activeClasses = ["bg-teal-400", "text-gray-900", "shadow-md"];
+    const inactiveClasses = [
+        "text-white",
+        "hover:text-teal-300",
+        "bg-transparent",
+        "shadow-none",
+    ];
+
+    // Helper function to swap classes
+    function setButtonActive(
+        activeBtn: HTMLButtonElement,
+        inactiveBtn: HTMLButtonElement,
+    ) {
+        activeBtn.classList.remove(...inactiveClasses);
+        activeBtn.classList.add(...activeClasses);
+
+        inactiveBtn.classList.remove(...activeClasses);
+        inactiveBtn.classList.add(...inactiveClasses);
+    }
+
+    // 3. Add click listeners
+    if (btnLive && btnProd) {
+        btnLive.addEventListener("click", () => {
+            // Update buttons
+            setButtonActive(btnLive, btnProd);
+            // Swap content
+            contentLive.classList.remove("hidden");
+            contentLive.classList.add("block");
+            contentProd.classList.remove("block");
+            contentProd.classList.add("hidden");
+        });
+
+        btnProd.addEventListener("click", () => {
+            // Update buttons
+            setButtonActive(btnProd, btnLive);
+            // Swap content
+            contentProd.classList.remove("hidden");
+            contentProd.classList.add("block");
+            contentLive.classList.remove("block");
+            contentLive.classList.add("hidden");
+        });
+    }
+</script>
