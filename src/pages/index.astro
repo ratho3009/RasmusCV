@@ -2,152 +2,180 @@
 // En Astro-side
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
+import GlowBlob from "../components/GlowBlob.astro"; // Import your new component
 ---
 
 <Layout>
-	<body>
-		<header>
-			<Header />
+	<Header />
 
-			<div class="animate-fade-in grid items-center justify-center">
-				<h1
-					class="mt-10 ml-46 text-4xl font-bold text-teal-400 text-left animate-fade-in-up"
+	<main class="relative isolate overflow-hidden min-h-screen bg-gray-950">
+		<GlowBlob
+			color="teal"
+			class="top-0 -left-1/4 w-[1000px] h-[800px] rotate-[-15deg] opacity-20"
+		/>
+
+		<GlowBlob
+			color="purple"
+			class="top-1/3 -right-1/4 w-[800px] h-[600px] rotate-[30deg] opacity-10"
+		/>
+
+		<GlowBlob
+			color="blue"
+			class="bottom-[-200px] left-1/4 w-[1200px] h-[600px] opacity-15"
+		/>
+
+		<div class="animate-fade-in grid items-center justify-center pt-10">
+			<h1
+				class="text-4xl font-bold text-teal-400 text-center md:text-left animate-fade-in-up"
+			>
+				Who am i?
+			</h1>
+
+			<div
+				class="flex flex-col md:flex-row items-center justify-center gap-10 px-6 mt-7"
+			>
+				<p class="text-white max-w-2xl leading-relaxed">
+					Hi, I'm Rasmus Thorkildsen. Originally from Kristiansand and
+					currently based in Trondheim, I am an IT graduate with a
+					deep passion for music. I hold a Bachelor's degree in IT,
+					have completed a one-year program in music, and am currently
+					pursuing my Master of Science in IT. This website serves as
+					my digital portfolio, bridging my two main passions. Below,
+					you can explore my dual background by diving into either my
+					technical projects or my creative musical endeavors.
+				</p>
+				<img
+					src="/RasmusThorkildsenPhoto.png"
+					alt="Rasmus Thorkildsen Portrait"
+					class="relative block overflow-hidden rounded-lg w-48 shadow-lg shadow-teal-500/20"
+				/>
+			</div>
+
+			<h2
+				class="mt-24 text-2xl font-bold text-teal-400 text-center animate-fade-in-up"
+			>
+				Some projects i have worked on
+			</h2>
+
+			<div
+				class="flex flex-wrap items-center justify-center pt-10 gap-10 px-6"
+			>
+				<a
+					href="/catandcapy"
+					class="relative group block overflow-hidden max-w-[300px] hover:-translate-y-2 transition-transform duration-300"
 				>
-					Who am i?
-				</h1>
-				<div class="flex items-center justify-center">
-					<p class="text-white max-w-100 mt-5">
-						Hi, I'm Rasmus Thorkildsen. Originally from Kristiansand
-						and currently based in Trondheim, I am an IT graduate
-						with a deep passion for music. I hold a Bachelor's
-						degree in IT, have completed a one-year program in
-						music, and am currently pursuing my Master of Science in
-						IT. This website serves as my digital portfolio,
-						bridging my two main passions. Below, you can explore my
-						dual background by diving into either my technical
-						projects or my creative musical endeavors.
-					</p>
 					<img
-						src="/RasmusThorkildsenPhoto.png"
-						width="300"
-						alt="Piano gallery selection"
-						class="relative group block overflow-hidden rounded-lg max-w-[200px] pl-10"
+						src="/catandcapyheader.jpg"
+						alt="Cat and Capy Project"
+						class="rounded-xl shadow-lg border border-gray-800"
 					/>
-				</div>
-				<h2
-					class="mt-10 text-2xl font-bold text-teal-400 text-center animate-fade-in-up"
-				>
-					Some projects i have worked on
-				</h2>
-				<div class="flex items-center justify-center pt-10 gap-10">
-					<a
-						href="/catandcapy"
-						class="relative group block overflow-hidden max-w-[300px] hover:animate-float"
+					<span
+						class="block text-white font-semibold text-base text-center pt-4 drop-shadow-md"
 					>
-						<img
-							src="/catandcapyheader.jpg"
-							width="300"
-							alt="Cat and Capy Project"
-							class="relative group block overflow-hidden max-w-[300px]"
-						/>
-						<span
-							class="text-white font-semibold text-base text-center pb-4 [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000] drop-shadow-md"
-							>Cat & Capy by Matato Games
-						</span>
-					</a>
-					<a
-						href="/catandcapy"
-						class="relative group block overflow-hidden max-w-[300px] hover:animate-float"
-					>
-						<img
-							src="/perfectsplithero.png"
-							width="300"
-							alt="Perfect Split Project"
-							class="relative group block overflow-hidden max-w-[300px]"
-						/>
-						<span
-							class="text-white font-semibold text-base text-center pb-4 [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000] drop-shadow-md"
-							>Perfect Split
-						</span>
-					</a>
-					<a
-						href="/catandcapy"
-						class="relative group block overflow-hidden max-w-[300px] hover:animate-float"
-					>
-						<img
-							src="/schibsted.png"
-							width="300"
-							alt="Schibsted Project"
-							class="relative group block overflow-hidden max-w-[300px]"
-						/>
-						<span
-							class="text-white font-semibold text-base text-center pb-4 [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000] drop-shadow-md"
-							>MA-Times for Schibsted
-						</span>
-					</a>
-				</div>
-			</div>
-			<div class="animate-fade-in grid items-center justify-center pb-32">
-				<h3
-					class="mt-10 text-3xl font-bold text-teal-400 text-center animate-fade-in-up"
-				>
-					Select a pathway to explore more my work
-				</h3>
-				<div
-					class="animate-slide-in-top flex items-center justify-center pt-10 gap-20"
-				>
-					<a
-						href="/music"
-						class="relative group block bg-slate-950 overflow-hidden rounded-lg max-w-[300px]"
-					>
-						<img
-							src="/pianopicture.jpg"
-							width="300"
-							alt="Piano gallery selection"
-							class="w-full h-auto transition-all duration-300 group-hover:brightness-30"
-						/>
-						<h2 class="text-center text-white text-2xl font-bold">
-							Music & Art
-						</h2>
-						<div
-							class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none p-4"
-						>
-							<span
-								class="text-white font-semibold text-base text-center pb-4 [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000] drop-shadow-md"
-								>Discover my musical journey, creative projects,
-								and professional services — including bookings,
-								private lessons, and original releases.</span
-							>
-						</div>
-					</a>
+						Cat & Capy by Matato Games
+					</span>
+				</a>
 
-					<a
-						href="/tech"
-						class="relative group block bg-slate-950 overflow-hidden rounded-lg max-w-[300px]"
+				<a
+					href="/catandcapy"
+					class="relative group block overflow-hidden max-w-[300px] hover:-translate-y-2 transition-transform duration-300"
+				>
+					<img
+						src="/perfectsplithero.png"
+						alt="Perfect Split Project"
+						class="rounded-xl shadow-lg border border-gray-800"
+					/>
+					<span
+						class="block text-white font-semibold text-base text-center pt-4 drop-shadow-md"
 					>
-						<img
-							src="/coding.jpg"
-							width="300"
-							alt="Coding gallery selection"
-							class="w-full h-auto transition-all duration-300 group-hover:brightness-30"
-						/>
-						<h2 class="text-center text-white text-2xl font-bold">
-							Tech & IT
-						</h2>
-						<div
-							class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none p-4"
-						>
-							<span
-								class="text-white font-semibold text-base text-center pb-4 [text-shadow:_-1px_-1px_0_#000,_1px_-1px_0_#000,_-1px_1px_0_#000,_1px_1px_0_#000] drop-shadow-md"
-								>Dive into my technical portfolio as an IT
-								graduate. Explore my software development
-								projects, academic coursework, AI
-								implementations, and game design.
-							</span>
-						</div>
-					</a>
-				</div>
+						Perfect Split
+					</span>
+				</a>
+
+				<a
+					href="/catandcapy"
+					class="relative group block overflow-hidden max-w-[300px] hover:-translate-y-2 transition-transform duration-300"
+				>
+					<img
+						src="/schibsted.png"
+						alt="Schibsted Project"
+						class="rounded-xl shadow-lg border border-gray-700"
+					/>
+					<span
+						class="block text-white font-semibold text-base text-center pt-4 drop-shadow-md"
+					>
+						MA-Times for Schibsted
+					</span>
+				</a>
 			</div>
-		</header>
-	</body>
+		</div>
+
+		<div
+			class="animate-fade-in grid items-center justify-center pb-40 mt-28"
+		>
+			<h3
+				class="text-3xl font-bold text-teal-400 text-center animate-fade-in-up"
+			>
+				Select a pathway to explore more my work
+			</h3>
+
+			<div
+				class="animate-slide-in-top flex flex-col md:flex-row items-center justify-center pt-10 gap-10 md:gap-20 px-6"
+			>
+				<a
+					href="/music"
+					class="relative group block bg-slate-950 overflow-hidden rounded-xl max-w-[300px] shadow-xl border border-gray-800 hover:border-teal-500/50 transition-colors"
+				>
+					<img
+						src="/pianopicture.jpg"
+						alt="Piano gallery selection"
+						class="w-full h-auto transition-all duration-500 group-hover:brightness-50 group-hover:scale-105"
+					/>
+					<h2
+						class="absolute top-4 left-0 right-0 text-center text-white text-2xl font-bold z-10 drop-shadow-lg"
+					>
+						Music & Art
+					</h2>
+					<div
+						class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 bg-black/40"
+					>
+						<span
+							class="text-white font-medium text-sm text-center leading-relaxed drop-shadow-md mt-8"
+						>
+							Discover my musical journey, creative projects, and
+							professional services — including bookings, private
+							lessons, and original releases.
+						</span>
+					</div>
+				</a>
+
+				<a
+					href="/tech"
+					class="relative group block bg-slate-950 overflow-hidden rounded-xl max-w-[300px] shadow-xl border border-gray-800 hover:border-teal-500/50 transition-colors"
+				>
+					<img
+						src="/coding.jpg"
+						alt="Coding gallery selection"
+						class="w-full h-auto transition-all duration-500 group-hover:brightness-50 group-hover:scale-105"
+					/>
+					<h2
+						class="absolute top-4 left-0 right-0 text-center text-white text-2xl font-bold z-10 drop-shadow-lg"
+					>
+						Tech & IT
+					</h2>
+					<div
+						class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 bg-black/40"
+					>
+						<span
+							class="text-white font-medium text-sm text-center leading-relaxed drop-shadow-md mt-8"
+						>
+							Dive into my technical portfolio as an IT graduate.
+							Explore my software development projects, academic
+							coursework, AI implementations, and game design.
+						</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</main>
 </Layout>

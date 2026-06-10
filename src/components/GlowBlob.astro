@@ -1,0 +1,33 @@
+---
+// src/components/GlowBlob.astro
+interface Props {
+    class?: string;
+    color?: "teal" | "pink" | "purple" | "blue";
+}
+
+const { class: className, color = "teal" } = Astro.props;
+
+// Define default gradient colors based on your portfolio palette
+const colorGradients = {
+    teal: "from-teal-600 to-emerald-800",
+    pink: "from-pink-500 to-rose-700",
+    purple: "from-[#9089fc] to-[#7f1d1d]", // Matches your contact blob purple
+    blue: "from-blue-600 to-indigo-900",
+};
+
+const gradient = colorGradients[color];
+---
+
+<div
+    aria-hidden="true"
+    class:list={[
+        "absolute -z-10 transform-gpu overflow-hidden blur-[128px] opacity-15 pointer-events-none rounded-full",
+        gradient,
+        className,
+    ]}
+>
+    <div
+        class="aspect-square w-full h-full bg-linear-to-tr from-inherit to-inherit"
+    >
+    </div>
+</div>
