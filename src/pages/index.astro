@@ -3,179 +3,158 @@
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import GlowBlob from "../components/GlowBlob.astro"; // Import your new component
+
+const projects = [
+	{
+		href: "/catandcapy",
+		src: "/catandcapyheader.jpg",
+		alt: "Cat and Capy Project",
+		title: "Cat & Capy by Matato Games",
+	},
+	{
+		href: "/catandcapy",
+		src: "/perfectsplithero.png",
+		alt: "Perfect Split Project",
+		title: "Perfect Split",
+	},
+	{
+		href: "/catandcapy",
+		src: "/schibsted.png",
+		alt: "Schibsted Project",
+		title: "MA-Times for Schibsted",
+	},
+];
+
+const pathways = [
+	{
+		href: "/music",
+		src: "/pianopicture.jpg",
+		alt: "Piano gallery selection",
+		title: "Music & Art",
+		text: "Discover my musical journey, creative projects, and professional services — including bookings, private lessons, and original releases.",
+	},
+	{
+		href: "/tech",
+		src: "/coding.jpg",
+		alt: "Coding gallery selection",
+		title: "Tech & IT",
+		text: "Dive into my technical portfolio as an IT graduate. Explore my software development projects, academic coursework, AI implementations, and game design.",
+	},
+];
 ---
 
-<Layout>
+<Layout title="Rasmus Thorkildsen — Portfolio">
 	<Header />
 
 	<main class="relative isolate overflow-hidden min-h-screen bg-gray-950">
-		<GlowBlob
-			color="teal"
-			class="top-0 -left-1/4 w-[1000px] h-[800px] rotate-[-15deg] opacity-20"
-		/>
-
+		<GlowBlob color="teal" class="top-0 -left-1/4 rotate-[-15deg]" />
 		<GlowBlob
 			color="purple"
-			class="top-1/3 -right-1/4 w-[800px] h-[600px] rotate-[30deg] opacity-10"
+			class="top-1/3 -right-1/4 rotate-[30deg] opacity-10"
 		/>
+		<GlowBlob color="blue" class="bottom-[-15vw] left-1/4" />
 
-		<GlowBlob
-			color="blue"
-			class="bottom-[-200px] left-1/4 w-[1200px] h-[600px] opacity-15"
-		/>
-
-		<div class="animate-fade-in grid items-center justify-center pt-10">
-			<h1
-				class="text-4xl font-bold text-teal-400 text-center md:text-left animate-fade-in-up"
-			>
-				Who am i?
-			</h1>
-
-			<div
-				class="flex flex-col md:flex-row items-center justify-center gap-10 px-6 mt-7"
-			>
-				<p class="text-white max-w-2xl leading-relaxed">
-					Hi, I'm Rasmus Thorkildsen. Originally from Kristiansand and
-					currently based in Trondheim, I am an IT graduate with a
-					deep passion for music. I hold a Bachelor's degree in IT,
-					have completed a one-year program in music, and am currently
-					pursuing my Master of Science in IT. This website serves as
-					my digital portfolio, bridging my two main passions. Below,
-					you can explore my dual background by diving into either my
-					technical projects or my creative musical endeavors.
-				</p>
-				<img
-					src="/RasmusThorkildsenPhoto2.PNG"
-					alt="Rasmus Thorkildsen Portrait"
-					class="relative block overflow-hidden rounded-lg w-48 shadow-lg shadow-teal-500/20"
-				/>
-			</div>
-
-			<h2
-				class="mt-24 text-2xl font-bold text-teal-400 text-center animate-fade-in-up"
-			>
-				Some projects i have worked on
-			</h2>
-
-			<div
-				class="flex flex-wrap items-center justify-center pt-10 gap-10 px-6"
-			>
-				<a
-					href="/catandcapy"
-					class="relative group block overflow-hidden max-w-[300px] hover:-translate-y-2 transition-transform duration-300"
+		<div class="container-page animate-fade-in py-section">
+			<section>
+				<h1
+					class="text-fluid-3xl font-bold text-teal-400 text-center md:text-left animate-fade-in-up text-balance"
 				>
-					<img
-						src="/catandcapyheader.jpg"
-						alt="Cat and Capy Project"
-						class="rounded-xl shadow-lg border border-gray-800"
-					/>
-					<span
-						class="block text-white font-semibold text-base text-center pt-4 drop-shadow-md"
-					>
-						Cat & Capy by Matato Games
-					</span>
-				</a>
+					Who am i?
+				</h1>
 
-				<a
-					href="/catandcapy"
-					class="relative group block overflow-hidden max-w-[300px] hover:-translate-y-2 transition-transform duration-300"
+				<div
+					class="mt-block flex flex-col-reverse items-center gap-block md:flex-row md:items-start md:justify-between"
 				>
-					<img
-						src="/perfectsplithero.png"
-						alt="Perfect Split Project"
-						class="rounded-xl shadow-lg border border-gray-800"
-					/>
-					<span
-						class="block text-white font-semibold text-base text-center pt-4 drop-shadow-md"
+					<p
+						class="max-w-2xl text-fluid-base leading-relaxed text-white text-center md:text-left"
 					>
-						Perfect Split
-					</span>
-				</a>
+						Hi, I'm Rasmus Thorkildsen. Originally from Kristiansand and
+						currently based in Trondheim, I am an IT graduate with a
+						deep passion for music. I hold a Bachelor's degree in IT,
+						have completed a one-year program in music, and am currently
+						pursuing my Master of Science in IT. This website serves as
+						my digital portfolio, bridging my two main passions. Below,
+						you can explore my dual background by diving into either my
+						technical projects or my creative musical endeavors.
+					</p>
+					<img
+						src="/RasmusThorkildsenPhoto2.PNG"
+						alt="Rasmus Thorkildsen Portrait"
+						class="block w-[clamp(9rem,32vw,16rem)] shrink-0 overflow-hidden rounded-lg shadow-lg shadow-teal-500/20"
+					/>
+				</div>
+			</section>
 
-				<a
-					href="/catandcapy"
-					class="relative group block overflow-hidden max-w-[300px] hover:-translate-y-2 transition-transform duration-300"
+			<section class="mt-section">
+				<h2
+					class="text-fluid-2xl font-bold text-teal-400 text-center animate-fade-in-up text-balance"
 				>
-					<img
-						src="/schibsted.png"
-						alt="Schibsted Project"
-						class="rounded-xl shadow-lg border border-gray-700"
-					/>
-					<span
-						class="block text-white font-semibold text-base text-center pt-4 drop-shadow-md"
-					>
-						MA-Times for Schibsted
-					</span>
-				</a>
-			</div>
-		</div>
+					Some projects i have worked on
+				</h2>
 
-		<div
-			class="animate-fade-in grid items-center justify-center pb-40 mt-28"
-		>
-			<h3
-				class="text-3xl font-bold text-teal-400 text-center animate-fade-in-up"
-			>
-				Select a pathway to explore more my work
-			</h3>
-
-			<div
-				class="animate-slide-in-top flex flex-col md:flex-row items-center justify-center pt-10 gap-10 md:gap-20 px-6"
-			>
-				<a
-					href="/music"
-					class="relative group block bg-slate-950 overflow-hidden rounded-xl max-w-[300px] shadow-xl border border-gray-800 hover:border-teal-500/50 transition-colors"
+				<ul
+					class="mt-block grid grid-cols-1 gap-grid sm:grid-cols-2 lg:grid-cols-3"
 				>
-					<img
-						src="/pianopicture.jpg"
-						alt="Piano gallery selection"
-						class="w-full h-auto transition-all duration-500 group-hover:brightness-50 group-hover:scale-105"
-					/>
-					<h2
-						class="absolute top-4 left-0 right-0 text-center text-white text-2xl font-bold z-10 drop-shadow-lg"
-					>
-						Music & Art
-					</h2>
-					<div
-						class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 bg-black/40"
-					>
-						<span
-							class="text-white font-medium text-sm text-center leading-relaxed drop-shadow-md mt-8"
-						>
-							Discover my musical journey, creative projects, and
-							professional services — including bookings, private
-							lessons, and original releases.
-						</span>
-					</div>
-				</a>
+					{
+						projects.map((project) => (
+							<li>
+								<a
+									href={project.href}
+									class="group block h-full overflow-hidden transition-transform duration-300 hover:-translate-y-2"
+								>
+									<img
+										src={project.src}
+										alt={project.alt}
+										loading="lazy"
+										class="aspect-[16/10] w-full rounded-xl border border-gray-800 object-cover shadow-lg"
+									/>
+									<span class="block pt-4 text-center text-fluid-base font-semibold text-white drop-shadow-md text-balance">
+										{project.title}
+									</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
 
-				<a
-					href="/tech"
-					class="relative group block bg-slate-950 overflow-hidden rounded-xl max-w-[300px] shadow-xl border border-gray-800 hover:border-teal-500/50 transition-colors"
+			<section class="mt-section pb-block animate-fade-in">
+				<h3
+					class="text-fluid-2xl font-bold text-teal-400 text-center animate-fade-in-up text-balance"
 				>
-					<img
-						src="/coding.jpg"
-						alt="Coding gallery selection"
-						class="w-full h-auto transition-all duration-500 group-hover:brightness-50 group-hover:scale-105"
-					/>
-					<h2
-						class="absolute top-4 left-0 right-0 text-center text-white text-2xl font-bold z-10 drop-shadow-lg"
-					>
-						Tech & IT
-					</h2>
-					<div
-						class="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 bg-black/40"
-					>
-						<span
-							class="text-white font-medium text-sm text-center leading-relaxed drop-shadow-md mt-8"
-						>
-							Dive into my technical portfolio as an IT graduate.
-							Explore my software development projects, academic
-							coursework, AI implementations, and game design.
-						</span>
-					</div>
-				</a>
-			</div>
+					Select a pathway to explore more my work
+				</h3>
+
+				<ul
+					class="animate-slide-in-top mt-block mx-auto grid max-w-4xl grid-cols-1 gap-grid sm:grid-cols-2"
+				>
+					{
+						pathways.map((pathway) => (
+							<li>
+								<a
+									href={pathway.href}
+									class="group relative block h-full overflow-hidden rounded-xl border border-gray-800 bg-slate-950 shadow-xl transition-colors hover:border-teal-500/50"
+								>
+									<img
+										src={pathway.src}
+										alt={pathway.alt}
+										loading="lazy"
+										class="aspect-[4/3] w-full object-cover transition-all duration-500 group-hover:brightness-50 group-hover:scale-105"
+									/>
+									<h2 class="absolute inset-x-0 top-4 z-10 text-center text-fluid-xl font-bold text-white drop-shadow-lg">
+										{pathway.title}
+									</h2>
+									<div class="absolute inset-0 flex items-center justify-center bg-black/40 p-gutter opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+										<span class="mt-8 text-center text-fluid-sm font-medium leading-relaxed text-white drop-shadow-md">
+											{pathway.text}
+										</span>
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
 		</div>
 	</main>
 </Layout>

@@ -1,53 +1,75 @@
 ---
 // src/components/Header.astro
-// You can write JavaScript/TypeScript here if you need dynamic data later!
-const navItems = ["Home", "About", "Contact"];
 import { Icon } from "astro-icon/components";
+
+const navItems = [
+    { label: "Home", href: "/" },
+    { label: "Contact", href: "/contact" },
+    { label: "Music", href: "/music" },
+    { label: "Tech", href: "/tech" },
+];
+
+const socials = [
+    { name: "fa6-brands:tiktok", href: "https://tiktok.com", label: "TikTok" },
+    {
+        name: "fa6-brands:instagram",
+        href: "https://instagram.com",
+        label: "Instagram",
+    },
+    {
+        name: "fa6-brands:youtube",
+        href: "https://youtube.com",
+        label: "YouTube",
+    },
+    {
+        name: "fa6-brands:spotify",
+        href: "https://spotify.com",
+        label: "Spotify",
+    },
+];
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 ---
 
-<header class="relative z-50">
-    <div class="bg-teal-400">
-        <div class="items-center flex min-h-20 justify-between px-10">
-            <ul class="flex gap-10">
-                <li class="hover:text-white"><a href="/">Home</a></li>
-                <li class="hover:text-white"><a href="contact">Contact</a></li>
-                <li class="hover:text-white"><a href="music">Music</a></li>
-                <li class="hover:text-white"><a href="tech">Tech</a></li>
-            </ul>
-            <ul class="items-center flex min-h-20 gap-10">
-                <li class="">
-                    <a
-                        href="https://tiktok.com"
-                        class="text-black hover:text-white transition-colors"
-                    >
-                        <Icon name="fa6-brands:tiktok" class="size-6" />
-                    </a>
-                </li>
-                <li class="">
-                    <a
-                        href="https://instagram.com"
-                        class="text-black hover:text-white transition-colors"
-                    >
-                        <Icon name="fa6-brands:instagram" class="size-6" />
-                    </a>
-                </li>
-                <li class="">
-                    <a
-                        href="https://youtube.com"
-                        class="text-black hover:text-white transition-colors"
-                    >
-                        <Icon name="fa6-brands:youtube" class="size-6" />
-                    </a>
-                </li>
-                <li class="">
-                    <a
-                        href="https://spotify.com"
-                        class="text-black hover:text-white transition-colors"
-                    >
-                        <Icon name="fa6-brands:spotify" class="size-6" />
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<header class="relative z-50 bg-teal-400">
+    <nav
+        class="container-page flex flex-wrap items-center justify-between gap-x-6 gap-y-3 py-3 sm:min-h-20 sm:py-0"
+    >
+        <ul
+            class="flex flex-wrap items-center gap-x-5 gap-y-2 text-fluid-sm font-medium sm:gap-x-8"
+        >
+            {
+                navItems.map((item) => (
+                    <li>
+                        <a
+                            href={item.href}
+                            aria-current={path === item.href ? "page" : null}
+                            class="text-black transition-colors hover:text-white aria-[current=page]:text-white"
+                        >
+                            {item.label}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <ul class="flex items-center gap-x-4 sm:gap-x-6">
+            {
+                socials.map((social) => (
+                    <li>
+                        <a
+                            href={social.href}
+                            aria-label={social.label}
+                            class="block text-black transition-colors hover:text-white"
+                        >
+                            <Icon
+                                name={social.name}
+                                class="size-5 sm:size-6"
+                            />
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
 </header>

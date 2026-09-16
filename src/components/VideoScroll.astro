@@ -1,50 +1,50 @@
 ---
-// src/components/Header.astro
+// src/components/VideoScroll.astro
 import { Icon } from "astro-icon/components";
+
+const videoIds = [
+    "7647510065221602582",
+    "7640552327224511766",
+    "7638966279818202390",
+];
 ---
 
 <div
-    class="relative flex items-center justify-center w-full max-w-5xl mx-auto h-[450px] overflow-hidden px-4 my-8"
+    class="relative mx-auto my-block flex w-full max-w-5xl items-center justify-center overflow-hidden h-[clamp(22rem,78vw,27rem)]"
 >
     <button
         id="previous-btn"
-        class="absolute left-0 sm:left-10 z-20 hover:animate-pulse hover:scale-110 transition-transform cursor-pointer bg-black/20 p-2 rounded-full"
+        aria-label="Previous video"
+        class="absolute left-0 z-20 cursor-pointer rounded-full bg-black/20 p-2 transition-transform hover:scale-110 hover:animate-pulse sm:left-4 lg:left-10"
     >
-        <Icon name="fa6-solid:angle-left" class="size-10 text-teal-400" />
+        <Icon
+            name="fa6-solid:angle-left"
+            class="size-7 text-teal-400 sm:size-10"
+        />
     </button>
 
-    <iframe
-        id="vid-0"
-        src="https://www.tiktok.com/player/v1/7647510065221602582?autoplay=0"
-        class="carousel-video absolute w-[220px] h-[380px] rounded-xl shadow-lg border-none transition-all duration-500 ease-in-out"
-        allow="fullscreen"
-        loading="lazy"
-    >
-    </iframe>
-
-    <iframe
-        id="vid-1"
-        src="https://www.tiktok.com/player/v1/7640552327224511766?autoplay=0"
-        class="carousel-video absolute w-[220px] h-[380px] rounded-xl shadow-lg border-none transition-all duration-500 ease-in-out"
-        allow="fullscreen"
-        loading="lazy"
-    >
-    </iframe>
-
-    <iframe
-        id="vid-2"
-        src="https://www.tiktok.com/player/v1/7638966279818202390?autoplay=0"
-        class="carousel-video absolute w-[220px] h-[380px] rounded-xl shadow-lg border-none transition-all duration-500 ease-in-out"
-        allow="fullscreen"
-        loading="lazy"
-    >
-    </iframe>
+    {
+        videoIds.map((id, i) => (
+            <iframe
+                id={`vid-${i}`}
+                src={`https://www.tiktok.com/player/v1/${id}?autoplay=0`}
+                title="TikTok video"
+                class="carousel-video absolute aspect-[9/16] w-[clamp(10rem,42vw,14rem)] rounded-xl border-none shadow-lg transition-all duration-500 ease-in-out"
+                allow="fullscreen"
+                loading="lazy"
+            />
+        ))
+    }
 
     <button
         id="next-btn"
-        class="absolute right-0 sm:right-10 z-10 hover:animate-pulse hover:scale-110 transition-transform cursor-pointer bg-black/20 p-2 rounded-full"
+        aria-label="Next video"
+        class="absolute right-0 z-20 cursor-pointer rounded-full bg-black/20 p-2 transition-transform hover:scale-110 hover:animate-pulse sm:right-4 lg:right-10"
     >
-        <Icon name="fa6-solid:angle-right" class="size-10 text-teal-400" />
+        <Icon
+            name="fa6-solid:angle-right"
+            class="size-7 text-teal-400 sm:size-10"
+        />
     </button>
 </div>
 
@@ -59,12 +59,12 @@ import { Icon } from "astro-icon/components";
     ) as HTMLButtonElement;
 
     // We define the 3 layout states as strings of Tailwind classes.
-    // Left & Right: Pushed to the side, scaled down, darker, and behind the center video.
-    // Center: Normal size, full brightness, brought to the front.
+    // Forskyvningen er i prosent av videoens egen bredde, slik at kortene
+    // holder samme innbyrdes plassering uansett hvor bred skjermen er.
     const states = [
-        "-translate-x-28 sm:-translate-x-48 scale-75 brightness-50 z-0 pointer-events-none", // 0: Left State
+        "-translate-x-[70%] sm:-translate-x-[95%] scale-75 brightness-50 z-0 pointer-events-none", // 0: Left State
         "translate-x-0 scale-100 brightness-100 z-10 shadow-2xl pointer-events-auto", // 1: Center State
-        "translate-x-28 sm:translate-x-48 scale-75 brightness-50 z-0 pointer-events-none", // 2: Right State
+        "translate-x-[70%] sm:translate-x-[95%] scale-75 brightness-50 z-0 pointer-events-none", // 2: Right State
     ];
 
     // This array maps each video (by index) to a state index above.
@@ -106,59 +106,4 @@ import { Icon } from "astro-icon/components";
 
     // Run this once when the page loads to snap everything into place
     applyPositions();
-</script>
-<script>
-    // 1. Grab our buttons and content blocks
-    const btnLive = document.getElementById("btn-live") as HTMLButtonElement;
-    const btnProd = document.getElementById("btn-prod") as HTMLButtonElement;
-    const contentLive = document.getElementById(
-        "content-live",
-    ) as HTMLDivElement;
-    const contentProd = document.getElementById(
-        "content-prod",
-    ) as HTMLDivElement;
-
-    // 2. Define our active and inactive styling classes
-    const activeClasses = ["bg-teal-400", "text-gray-900", "shadow-md"];
-    const inactiveClasses = [
-        "text-white",
-        "hover:text-teal-300",
-        "bg-transparent",
-        "shadow-none",
-    ];
-
-    // Helper function to swap classes
-    function setButtonActive(
-        activeBtn: HTMLButtonElement,
-        inactiveBtn: HTMLButtonElement,
-    ) {
-        activeBtn.classList.remove(...inactiveClasses);
-        activeBtn.classList.add(...activeClasses);
-
-        inactiveBtn.classList.remove(...activeClasses);
-        inactiveBtn.classList.add(...inactiveClasses);
-    }
-
-    // 3. Add click listeners
-    if (btnLive && btnProd) {
-        btnLive.addEventListener("click", () => {
-            // Update buttons
-            setButtonActive(btnLive, btnProd);
-            // Swap content
-            contentLive.classList.remove("hidden");
-            contentLive.classList.add("block");
-            contentProd.classList.remove("block");
-            contentProd.classList.add("hidden");
-        });
-
-        btnProd.addEventListener("click", () => {
-            // Update buttons
-            setButtonActive(btnProd, btnLive);
-            // Swap content
-            contentProd.classList.remove("hidden");
-            contentProd.classList.add("block");
-            contentLive.classList.remove("block");
-            contentLive.classList.add("hidden");
-        });
-    }
 </script>

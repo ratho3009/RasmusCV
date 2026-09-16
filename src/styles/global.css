@@ -1,2 +1,44 @@
 @import "tailwindcss";
 @import 'tailwind-animations';
+
+/*
+  Fluid skala for hele siden. Alt som skal vokse med skjermen bruker disse
+  tokenene i stedet for faste px-verdier, slik at layouten skalerer jevnt
+  mellom breakpointene i stedet for å hoppe.
+*/
+@theme {
+	/* Typografi: clamp(min, fluid, max) */
+	--text-fluid-sm: clamp(0.875rem, 0.84rem + 0.18vw, 1rem);
+	--text-fluid-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+	--text-fluid-lg: clamp(1.125rem, 1.06rem + 0.32vw, 1.375rem);
+	--text-fluid-xl: clamp(1.35rem, 1.2rem + 0.72vw, 1.875rem);
+	--text-fluid-2xl: clamp(1.6rem, 1.33rem + 1.35vw, 2.5rem);
+	--text-fluid-3xl: clamp(2rem, 1.55rem + 2.25vw, 3.5rem);
+
+	/* Avstander: brukes som p-gutter, mt-section, gap-grid osv. */
+	--spacing-gutter: clamp(1.25rem, 4vw, 2.5rem);
+	--spacing-section: clamp(3.5rem, 9vw, 7rem);
+	--spacing-block: clamp(2rem, 5vw, 3.5rem);
+	--spacing-grid: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+/* Sidebredde + gutter ett sted, i stedet for ulik max-w per side. */
+@utility container-page {
+	width: 100%;
+	max-width: 80rem;
+	margin-inline: auto;
+	padding-inline: var(--spacing-gutter);
+}
+
+/* Smalere variant for lesbar brødtekst og skjemaer. */
+@utility container-prose {
+	width: 100%;
+	max-width: 48rem;
+	margin-inline: auto;
+	padding-inline: var(--spacing-gutter);
+}
+
+html {
+	/* Hindrer at iOS Safari blåser opp font-størrelser i landskapsmodus. */
+	-webkit-text-size-adjust: 100%;
+}

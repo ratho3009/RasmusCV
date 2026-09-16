@@ -21,7 +21,10 @@ const gradient = colorGradients[color];
 <div
     aria-hidden="true"
     class:list={[
-        "absolute -z-10 transform-gpu overflow-hidden blur-[128px] opacity-15 pointer-events-none rounded-full",
+        // Størrelse og blur skalerer med viewporten, ellers dekker blobbene
+        // hele mobilskjermen og gir en grøtete bakgrunn.
+        "absolute -z-10 transform-gpu overflow-hidden rounded-full pointer-events-none opacity-15",
+        "w-[80vw] h-[60vw] max-w-[1200px] max-h-[800px] blur-[clamp(60px,12vw,128px)]",
         gradient,
         className,
     ]}
