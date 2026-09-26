@@ -1,12 +1,17 @@
 ---
 // src/layouts/Layout.astro
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
 
 interface Props {
 	title?: string;
+	description?: string;
 }
 
-const { title = "Rasmus Thorkildsen" } = Astro.props;
+const {
+	title = "Rasmus Thorkildsen",
+	description = "Rasmus Thorkildsen — IT graduate, MSc student and pianist based in Trondheim.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -14,15 +19,26 @@ const { title = "Rasmus Thorkildsen" } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#f7f6f2" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body
-		class="min-h-screen overflow-x-hidden bg-slate-900 text-fluid-base antialiased"
+		class="flex min-h-screen flex-col overflow-x-hidden bg-paper text-fluid-base text-ink antialiased"
 	>
-		<slot />
+		<div class="flex-1">
+			<slot />
+		</div>
+		<Footer />
 	</body>
 </html>
 

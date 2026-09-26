@@ -1,0 +1,30 @@
+---
+// src/components/Footer.astro
+import { Icon } from "astro-icon/components";
+import { socials } from "../data/socials";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-paper">
+    <div
+        class="container-page flex flex-col items-center justify-between gap-4 py-8 text-fluid-sm text-ink-muted sm:flex-row"
+    >
+        <p>© {year} Rasmus Thorkildsen · Trondheim, Norway</p>
+        <ul class="flex items-center gap-x-5">
+            {
+                socials.map((social) => (
+                    <li>
+                        <a
+                            href={social.href}
+                            aria-label={social.label}
+                            class="block text-ink-faint transition-colors hover:text-accent"
+                        >
+                            <Icon name={social.icon} class="size-4" />
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</footer>

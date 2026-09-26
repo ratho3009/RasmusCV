@@ -16,23 +16,22 @@ const tracks = [
 
     <main class="container-page py-section">
         <section>
-            <h1
-                class="text-fluid-3xl font-extrabold tracking-tight text-teal-400 animate-fade-in-up text-balance"
-            >
+            <p class="eyebrow">Music & Art</p>
+            <h1 class="mt-3 text-fluid-3xl animate-fade-in-up text-balance">
                 About my music
             </h1>
 
             <div
-                class="mt-block flex flex-col items-center gap-block rounded-2xl border border-gray-700/30 bg-gray-800/20 p-gutter shadow-xl backdrop-blur-sm animate-fade-in-up md:flex-row md:p-block"
+                class="mt-block flex flex-col items-center gap-block rounded-2xl border border-line bg-surface p-gutter animate-fade-in-up md:flex-row md:p-block"
             >
                 <div class="flex-1 space-y-4">
                     <p
-                        class="text-fluid-lg font-semibold italic text-teal-300/90 text-balance"
+                        class="font-display text-fluid-xl italic leading-snug text-ink text-balance"
                     >
                         "Every song tells a story, and the keys are where they
                         begin."
                     </p>
-                    <p class="text-fluid-base leading-relaxed text-gray-300">
+                    <p class="text-fluid-base leading-relaxed text-ink-muted">
                         I've been immersed in music my whole life. From writing
                         my first raw songs to meticulously crafting intricate
                         piano melodies, creating music is how I capture emotions
@@ -46,14 +45,9 @@ const tracks = [
                 <div
                     class="group relative w-[clamp(12rem,45vw,18rem)] shrink-0"
                 >
-                    <div
-                        class="absolute inset-0 rounded-xl bg-teal-500/10 blur-xl transition-all duration-500 group-hover:bg-teal-500/20"
-                    >
-                    </div>
-
                     <img
                         src="/pianoplaceholder.png"
-                        class="relative z-10 aspect-square w-full rounded-xl border border-gray-700/50 object-cover shadow-2xl transition-all duration-500 group-hover:scale-[1.03] group-hover:border-teal-500/40"
+                        class="relative aspect-square w-full rounded-xl object-cover ring-1 ring-line transition-transform duration-500 group-hover:scale-[1.02]"
                         alt="Piano performance portrait"
                     />
                 </div>
@@ -62,30 +56,30 @@ const tracks = [
 
         <div class="my-section flex w-full justify-center">
             <div
-                class="inline-flex rounded-full bg-gray-800/50 p-1 shadow-inner"
+                class="inline-flex rounded-full border border-line bg-surface p-1"
             >
                 <button
                     id="btn-live"
-                    class="cursor-pointer rounded-full bg-teal-400 px-4 py-2 text-fluid-sm font-bold text-gray-900 shadow-md transition-all duration-300 sm:px-6"
+                    class="cursor-pointer rounded-full bg-accent px-4 py-2 text-fluid-sm font-medium text-surface transition-colors duration-300 sm:px-6"
                 >
                     Live Performance
                 </button>
                 <button
                     id="btn-prod"
-                    class="cursor-pointer rounded-full px-4 py-2 text-fluid-sm font-bold text-white transition-all duration-300 hover:text-teal-300 sm:px-6"
+                    class="cursor-pointer rounded-full px-4 py-2 text-fluid-sm font-medium text-ink-muted transition-colors duration-300 hover:text-ink sm:px-6"
                 >
                     Music Production
                 </button>
             </div>
         </div>
 
-        <div class="mx-auto w-full max-w-4xl pb-block">
+        <div class="w-full pb-block">
             <section id="content-live" class="block animate-fade-in-up">
-                <h2 class="mb-4 text-fluid-2xl font-bold text-teal-400">
+                <h2 class="mb-4 text-fluid-2xl">
                     Live Performance
                 </h2>
                 <p
-                    class="max-w-2xl pt-4 text-fluid-base leading-relaxed text-white"
+                    class="max-w-2xl text-fluid-base leading-relaxed text-ink-muted"
                 >
                     I've been immersed in music my entire life. Whether I'm
                     writing original songs or putting my own spin on popular
@@ -95,7 +89,7 @@ const tracks = [
                     that raw energy and emotion with an audience.
                 </p>
                 <h2
-                    class="mt-block mb-block text-fluid-2xl font-bold text-teal-400 animate-fade-in-up text-balance"
+                    class="mt-block mb-block text-fluid-2xl animate-fade-in-up text-balance"
                 >
                     Some of the Piano covers I have made
                 </h2>
@@ -103,11 +97,11 @@ const tracks = [
             </section>
 
             <section id="content-prod" class="hidden animate-fade-in-up">
-                <h2 class="mb-4 text-fluid-2xl font-bold text-teal-400">
+                <h2 class="mb-4 text-fluid-2xl">
                     Music Production
                 </h2>
                 <p
-                    class="max-w-2xl pt-4 text-fluid-base leading-relaxed text-white"
+                    class="max-w-2xl text-fluid-base leading-relaxed text-ink-muted"
                 >
                     While live performance is about the raw energy of the
                     moment, the studio is where I get to build an entire sonic
@@ -120,7 +114,7 @@ const tracks = [
                 </p>
 
                 <h2
-                    class="mt-block mb-block text-fluid-2xl font-bold text-teal-400 animate-fade-in-up text-balance"
+                    class="mt-block mb-block text-fluid-2xl animate-fade-in-up text-balance"
                 >
                     Listen to my latest tracks
                 </h2>
@@ -138,7 +132,7 @@ const tracks = [
                                 allowfullscreen
                                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                 loading="lazy"
-                                class="w-full rounded-xl shadow-lg transition-transform duration-300 hover:scale-[1.02]"
+                                class="w-full rounded-xl"
                             />
                         ))
                     }
@@ -160,12 +154,11 @@ const tracks = [
         "content-prod",
     ) as HTMLDivElement;
 
-    const activeClasses = ["bg-teal-400", "text-gray-900", "shadow-md"];
+    const activeClasses = ["bg-accent", "text-surface"];
     const inactiveClasses = [
-        "text-white",
-        "hover:text-teal-300",
+        "text-ink-muted",
+        "hover:text-ink",
         "bg-transparent",
-        "shadow-none",
     ];
 
     function setButtonActive(

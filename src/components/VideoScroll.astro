@@ -15,11 +15,11 @@ const videoIds = [
     <button
         id="previous-btn"
         aria-label="Previous video"
-        class="absolute left-0 z-20 cursor-pointer rounded-full bg-black/20 p-2 transition-transform hover:scale-110 hover:animate-pulse sm:left-4 lg:left-10"
+        class="absolute left-0 z-20 cursor-pointer rounded-full border border-line bg-surface p-2.5 text-ink shadow-sm transition-colors hover:border-ink sm:left-4 lg:left-10"
     >
         <Icon
             name="fa6-solid:angle-left"
-            class="size-7 text-teal-400 sm:size-10"
+            class="size-4 sm:size-5"
         />
     </button>
 
@@ -39,11 +39,11 @@ const videoIds = [
     <button
         id="next-btn"
         aria-label="Next video"
-        class="absolute right-0 z-20 cursor-pointer rounded-full bg-black/20 p-2 transition-transform hover:scale-110 hover:animate-pulse sm:right-4 lg:right-10"
+        class="absolute right-0 z-20 cursor-pointer rounded-full border border-line bg-surface p-2.5 text-ink shadow-sm transition-colors hover:border-ink sm:right-4 lg:right-10"
     >
         <Icon
             name="fa6-solid:angle-right"
-            class="size-7 text-teal-400 sm:size-10"
+            class="size-4 sm:size-5"
         />
     </button>
 </div>
@@ -62,9 +62,9 @@ const videoIds = [
     // Forskyvningen er i prosent av videoens egen bredde, slik at kortene
     // holder samme innbyrdes plassering uansett hvor bred skjermen er.
     const states = [
-        "-translate-x-[70%] sm:-translate-x-[95%] scale-75 brightness-50 z-0 pointer-events-none", // 0: Left State
-        "translate-x-0 scale-100 brightness-100 z-10 shadow-2xl pointer-events-auto", // 1: Center State
-        "translate-x-[70%] sm:translate-x-[95%] scale-75 brightness-50 z-0 pointer-events-none", // 2: Right State
+        "-translate-x-[70%] sm:-translate-x-[95%] scale-75 opacity-40 z-0 pointer-events-none", // 0: Left State
+        "translate-x-0 scale-100 opacity-100 z-10 shadow-xl pointer-events-auto", // 1: Center State
+        "translate-x-[70%] sm:translate-x-[95%] scale-75 opacity-40 z-0 pointer-events-none", // 2: Right State
     ];
 
     // This array maps each video (by index) to a state index above.
